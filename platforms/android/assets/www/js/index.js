@@ -178,6 +178,7 @@ var claimSuccess = function(position) {
 var locSuccess = function(position) {
     currentLatitude = position.coords.latitude;
     currentLongitude = position.coords.longitude;
+
     $.get("http://54.69.224.34:9090/share?username="+document.getElementById('username').value+"&lat="+currentLatitude+"&lon="+currentLongitude+"&size="+$('input[name="size"]:checked').val(), function(data,status){
         //alert(data);
        
@@ -205,6 +206,7 @@ function onError(error) {
 }
 // $("#submitButton").on("click",function(e) {
 $(document).on("click", "#submitButton", function(evt) {
+   if  (document.getElementById('username').value != "" && document.getElementById('password').value != "") {
 // $("#loginForm").on("submit",function(e) {
     // alert("suuccess");
     //$.mobile.navigate( "#pagetwo", { transition : "slide", info: "info about the #bar hash" });
@@ -229,7 +231,35 @@ $(document).on("click", "#submitButton", function(evt) {
             }
         
     });
+    }
     return false;
+    
+});
+
+$(document).on("click", "#regButton", function(evt) {
+   if  (document.getElementById('regusername').value != "" && document.getElementById('regpassword').value != "" && document.getElementById('regemail').value != "") {
+// $("#loginForm").on("submit",function(e) {
+    // alert("suuccess");
+    //$.mobile.navigate( "#pagetwo", { transition : "slide", info: "info about the #bar hash" });
+    $.get("http://54.69.224.34:9090/register?username="+document.getElementById('regusername').value+"&password="+document.getElementById('regpassword').value+"&email="+document.getElementById('regemail').value, function(data,status){
+           //navigator.geolocation.getCurrentPosition(onSuccess, onError);
+           //alert(data["cred"]);
+           if (String(data) == "username") {
+                navigator.notification.alert("Username already in use!");
+            
+            }
+            else if (String(data) == "email") {
+                navigator.notification.alert("Email already in use!");
+            }
+            else {
+                navigator.notification.alert("Account Created! You may Login in now!");
+                $.mobile.changePage( "#loginPage");
+            }
+        
+    });
+    }
+    return false;
+    
 });
 
 $(document).on("click", "#shareSubmitButton", function(evt) {
@@ -245,8 +275,9 @@ $(document).on("click", "#shareSubmitButton", function(evt) {
 $(document).on("click", "#findSubmitButton", function(evt) {
 // $("#loginForm").on("submit",function(e) {
     // alert("suuccess");
-    
+    if (document.getElementById('distance').value != "") {
      navigator.geolocation.getCurrentPosition(findSuccess, onError);
+    }
         
     
     return false;
@@ -257,6 +288,13 @@ $( "#find" ).click(function() {
   // navigator.notification.alert("Find");
 });
 
+$( "#regSelButton" ).click(function() {
+ $.mobile.changePage( "#registerPage");
+        //$.mobile.changePage("#pagetwo");
+        //navigator.notification.alert(data);
+        //document.getElementById("dead").innerHTML = data;
+    
+});
 $( "#share" ).click(function() {
  $.mobile.changePage( "#sharepage");
         //$.mobile.changePage("#pagetwo");

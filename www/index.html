@@ -39,10 +39,6 @@
     <body>
          
         <div id="loginPage" data-role="page">
-
-            
-
-            
                 <div data-role="header">
                     <h1>FreePark</h1>
                 </div>
@@ -61,6 +57,38 @@
 
                     <input type="submit" value="Login" id="submitButton">
                     </form>
+                    <input type="button" value="Register" id="regSelButton">
+                
+                </div>
+
+            <!-- <div data-role="footer">
+                <h4>FreePark &copy; 2014</h4>
+            </div> -->
+
+        </div>
+        <div id="registerPage" data-role="page">
+                <div data-role="header">
+                    <h1>FreePark</h1>
+                </div>
+
+                <div data-role="main" class="ui-content">
+                    <form id="registerForm">
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="regusername">Username:</label>
+                        <input type="text" name="regusername" id="regusername" value="" placeholder="Username" />
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="regpassword">Password:</label>
+                        <input type="password" name="regpassword" id="regpassword" value="" placeholder="Password" />
+                    </div>
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="regemail">Email:</label>
+                        <input type="text" name="regemail" id="regemail" value="" placeholder="Email" />
+                    </div>
+                    <input type="button" value="Register" id="regButton">
+                    </form>
+                    
                 
                 </div>
 
