@@ -23,12 +23,12 @@
  
 #map_canvas{
     position:absolute; 
-    width:75%; 
+    width:90%; 
     height:75%
 }
 #dest_map_canvas{
     position:absolute; 
-    width:75%; 
+    width:90%; 
     height:75%;
 }
  
