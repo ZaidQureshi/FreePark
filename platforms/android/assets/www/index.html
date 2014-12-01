@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" href="js/libs/jquery-mobile/jquery.mobile.min.css"/>
+        
+        <script type="text/javascript" src="js/libs/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery-mobile/jquery.mobile.min.js"></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <meta name="msapplication-tap-highlight" content="no" />
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1TuDF4yI9RLZgza4jb9yXQHTud8v8IuQ&sensor=false"> </script>
+
+        <title>Hello World</title>
+    </head>
+    <body>
+         
+        <div id="loginPage" data-role="page">
+
+            
+
+            
+                <div data-role="header">
+                    <h1>FreePark</h1>
+                </div>
+
+                <div data-role="main" class="ui-content">
+                    <form id="loginForm">
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="username">Username:</label>
+                        <input type="text" name="username" id="username" value="" placeholder="Username" />
+                    </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" value="" placeholder="Password" />
+                    </div>
+
+                    <input type="submit" value="Login" id="submitButton">
+                    </form>
+                
+                </div>
+
+            <!-- <div data-role="footer">
+                <h4>FreePark &copy; 2014</h4>
+            </div> -->
+
+        </div>
+        <div data-role="page" id="pick">
+              <div data-role="header">
+                <h1>FreePark</h1>
+              </div>
+
+              <div data-role="main" class="ui-content">
+                <button type="button" id="release_main">Release Spot</button>
+                <button type="button" id="find">Find Spot</button>
+                <button type="button" id="share">Share Spot</button>
+                
+              </div>
+
+              <!-- <div data-role="footer">
+                <h4>FreePark &copy; 2014</h4>
+              </div> -->
+        </div>
+        <div data-role="page" id="sharepage">
+              <div data-role="header">
+                <h1>FreePark</h1>
+              </div>
+
+              <div data-role="main" class="ui-content">
+               <form id="shareSpotForm">
+                    <div data-role="fieldcontain" >
+                        <label for="size">Size of Space:</label>  </br>
+                    </div>
+                        <input type="radio" name="size" value="Small" id="size1"/><label for="size1"><img src="img/cars/eco45.png" alt="small car" ></label><br />
+                        <input type="radio" name="size" value="Medium" id="size2" checked="checked"/><label for="size2"><img src="img/cars/black187.png" alt="medium car" ></label><br />
+                        <input type="radio" name="size" value="Large" id="size3"/><label for="size3"><img src="img/cars/van4.png" alt="large car" ></label><br />
+                       
+                    <input type="submit" value="Share" id="shareSubmitButton">
+                </form>
+              </div>
+
+         
+        </div>
+        <div data-role="page" id="completedpage">
+              <div data-role="header">
+                <h1>FreePark</h1>
+              </div>
+
+              <div data-role="main" class="ui-content">
+                <a href="#pick" style="text-decoration:none;">  
+                    <center>
+                        <img src="img/check-mark-512.png" alt="comple"  max-width="100%" width="100%">
+                        <h3>Submitted!</h3>
+                    </center>
+                </a>
+              </div>
+
+              <!-- <div data-role="footer">
+                <h4>FreePark &copy; 2014</h4>
+              </div> -->
+        </div>
+        <div data-role="page" id="findpage">
+              <div data-role="header">
+                <h1>FreePark</h1>
+              </div>
+
+              <div data-role="main" class="ui-content">
+               <form id="findSpotForm">
+                    <div data-role="fieldcontain" >
+                        <label for="car">Size of Space:</label>  </br>
+                    </div>
+                        <input type="radio" name="car" value="Small" id="car1"/><label for="car1"><img src="img/cars/eco45.png" alt="small car" ></label><br />
+                        <input type="radio" name="car" value="Medium" id="car2" checked="checked"/><label for="car2"><img src="img/cars/black187.png" alt="medium car" ></label><br />
+                        <input type="radio" name="car" value="Large" id="car3"/><label for="car3"><img src="img/cars/van4.png" alt="large car" ></label><br />
+                       
+                    <div data-role="fieldcontain">
+                        <label for="distance">Distance (miles):</label>
+                        <input type="text" name="distance" id="distance" value="1" placeholder="Distance (miles)" />
+                    </div>
+                    <input type="submit" value="Find" id="findSubmitButton">
+                </form>
+              </div>
+         
+        </div>
+        <div data-role="page" id="mappage">
+              <div data-role="header">
+                <h1>FreePark</h1>
+              </div>
+              <div data-role="main" class="ui-content">
+              <div class="ui-grid-a">
+                      <div class="ui-block-a"><button type="button" id="claim" disabled>Claim Spot</button></div>
+                      <div class="ui-block-b"><button type="button" id="refresh">Refresh Map</button></div>
+                  </div>
+                <div id="map_canvas"></div>
+                
+              </div>
+               
+
+              <!-- <div data-role="footer">
+                  
+                <h4>FreePark &copy; 2014</h4>
+              </div> -->
+        </div>
+        <div data-role="page" id="destinationpage">
+              <div data-role="header">
+                <h1>FreePark</h1>
+              </div>
+              <div data-role="main" class="ui-content">
+              <button type="button" id="release">Release Spot</button>
+                <div id="dest_map_canvas"></div>
+                
+              </div>
+               
+
+              <!-- <div data-role="footer">
+                  
+                <h4>FreePark &copy; 2014</h4>
+              </div> -->
+        </div>
+        
+        <div data-role="page" id="reviewpage">
+              <div data-role="header">
+                <h1>FreePark</h1>
+              </div>
+
+              <div data-role="main" class="ui-content">
+               <form id="reviewForm">
+                        <div id="ratingopts">
+                          <input type="radio" name="rating" value="1" id="rating1"/><label for="rating1">Invalid spot (ie. fire hydrant)</label><br />
+                          <input type="radio" name="rating" value="2" id="rating2"/><label for="rating2">No parking space was found anywhere near location</label><br />
+                          <input type="radio" name="rating" value="3" id="rating3" checked="checked" /><label for="rating3">Spot wasn't as big as described</label><br />
+                          <input type="radio" name="rating" value="4" id="rating4"/><label for="rating4">Spot was adequate but a little far from provided coordinates</label><br />
+                          <input type="radio" name="rating" value="5" id="rating5"/><label for="rating5">Spot was perfect and exactly at the provided coordinates</label><br />
+                       
+                        </div>
+                    
+                    <input type="submit" value="Review" id="reviewSubmitButton">
+                </form>
+              </div>
+         
+        </div>
+       
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+    </body>
+</html>
